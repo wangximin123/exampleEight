@@ -6,20 +6,33 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <Button
         android:text="start"
-        android:onClick="startMusic"
-        android:layout_width="wrap_content"
+        android:onClick="startMovie"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content" />
     <Button
         android:text="pause"
-        android:onClick="pauseMusic"
-        android:layout_width="wrap_content"
+        android:onClick="pauseMovie"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content" />
     <Button
-        android:text="stop"
-        android:onClick="stopMusic"
-        android:layout_width="wrap_content"
+        android:text="resume"
+        android:onClick="resumeMovie"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content" />
+</LinearLayout>
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
 </LinearLayout>

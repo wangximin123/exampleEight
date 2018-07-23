@@ -11,17 +11,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.VideoView;
 
 import java.io.File;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-    MediaPlayer mediaPlayer;
+    VideoView videoView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        videoView=findViewById(R.id.videoView);
         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
         }else {
@@ -43,33 +44,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void init(){
-        try {
-            Log.d("result","haha");
-            mediaPlayer=new MediaPlayer();
-            Log.d("result", Environment.getExternalStorageDirectory().toString());
-            File f=new File(Environment.getExternalStorageDirectory(),"music.mp3");
-            mediaPlayer.setDataSource(f.getPath());
-            mediaPlayer.prepare();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            File f=new File(Environment.getExternalStorageDirectory(),"movie.mp4");
+           videoView.setVideoPath(f.getPath());
+
     }
-    public void startMusic(View view){
+    public void startMovie(View view){
 
 
-        if (!mediaPlayer.isPlaying()){
-            mediaPlayer.start();
+        if (!videoView.isPlaying()){
+            videoView.start();
         }
     }
-    public void pauseMusic(View view){
-        if (mediaPlayer.isPlaying()){
-            mediaPlayer.pause();
+    public void pauseMovie(View view){
+        if (videoView.isPlaying()){
+            videoView.pause();
         }
     }
-    public void stopMusic(View view){
-        if (mediaPlayer.isPlaying()){
-            mediaPlayer.reset();
-            init();
+    public void resumeMovie(View view){
+        if (videoView.isPlaying()){
+            videoView.resume();
         }
     }
 
