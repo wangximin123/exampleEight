@@ -8,12 +8,18 @@
     tools:context=".MainActivity">
 
     <Button
-        android:text="click"
-        android:onClick="photo"
+        android:text="start"
+        android:onClick="startMusic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <ImageView
-        android:id="@+id/image"
+    <Button
+        android:text="pause"
+        android:onClick="pauseMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:text="stop"
+        android:onClick="stopMusic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>
